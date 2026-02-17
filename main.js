@@ -7,6 +7,88 @@ function createEl(tag, className, content) {
   return el;
 }
 
+// Soft following light that appears on empty background areas
+function initCursorLight() {
+  const light = document.createElement("div");
+  light.className = "cursor-light";
+  document.body.appendChild(light);
+
+  function isOverContent(target) {
+    if (!target) return false;
+    return !!target.closest(
+      "a, button, .btn, .nav, .brand, .main, .project-card, .cert-card, .skill-card, .profile-card, .about, .skills, .certs, .edu-card"
+    );
+  }
+
+  document.addEventListener("mousemove", (e) => {
+    light.style.left = e.clientX + "px";
+    light.style.top = e.clientY + "px";
+
+    if (isOverContent(e.target)) {
+      light.classList.remove("is-visible");
+    } else {
+      light.classList.add("is-visible");
+    }
+  });
+}
+
+// Small word-rotator for hero badge
+function initIntroRotator(el) {
+  if (!el || el.dataset.rotatorInit === "1") return;
+  el.dataset.rotatorInit = "1";
+
+  const words = ["Website", "Application", "Software", "Develop"];
+  let index = 0;
+
+  el.textContent = words[0];
+
+  setInterval(() => {
+    index = (index + 1) % words.length;
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(4px)";
+
+    setTimeout(() => {
+      el.textContent = words[index];
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }, 220);
+  }, 2200);
+}
+
+// Rotating brand text for DEV PORTFOLIO in multiple languages
+function initBrandRotator(el) {
+  if (!el || el.dataset.rotatorInit === "1") return;
+  el.dataset.rotatorInit = "1";
+
+  const words = [
+    "Developer Portfolio",
+    "Portfolio Développeur",
+    "Portfolio Sviluppatore",
+    "開発者ポートフォリオ",
+    "개발자 포트폴리오",
+    "開發者作品集",
+    "ملف أعمال المطور",
+    "Entwickler-Portfolio",
+  ];
+
+  let index = 0;
+  el.textContent = words[0];
+
+  setInterval(() => {
+    index = (index + 1) % words.length;
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(4px)";
+
+    setTimeout(() => {
+      el.textContent = words[index];
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }, 220);
+  }, 2600);
+}
+
 // Lightweight animated network background for aesthetic effect
 function initNetworkBackground() {
   const canvas = document.getElementById("network-bg");
@@ -131,17 +213,18 @@ function renderHome(main) {
   main.className = "main main--home";
   main.innerHTML = "";
 
-  const leftCol = createEl("section");
+  const leftCol = createEl("section", "left-col");
 
   const introBadge = createEl("div", "intro-badge");
   const introIcon = createEl("div", "intro-badge-icon", "{ }");
   const introText = createEl(
     "div",
-    "intro-badge-text",
-    cfg.introKicker || "<hello world />"
+    "intro-badge-text intro-rotator",
+    ""
   );
   introBadge.appendChild(introIcon);
   introBadge.appendChild(introText);
+  initIntroRotator(introText);
 
   const heroTitle = createEl("h1", "hero-title");
   const heroTitleTop = createEl("span", "", (cfg.nameFirst || "Your").toUpperCase());
@@ -466,6 +549,8 @@ function renderProjects(main) {
 
     items.forEach((item) => {
       const card = createEl("article", "project-card");
+      // enable scroll animation similar to 'Onze diensten'
+      card.dataset.reveal = "service";
       if (item.featured) card.classList.add("project-card--featured");
 
       const top = createEl("div", "project-top");
@@ -576,6 +661,8 @@ function renderCertificates(main) {
 
   (certCfg.items || []).forEach((item) => {
     const card = createEl("article", "cert-card");
+    // enable scroll animation similar to 'Onze diensten'
+    card.dataset.reveal = "service";
 
     const inner = createEl("div", "cert-inner");
 
@@ -647,12 +734,20 @@ function render() {
   const shell = createEl("div", "shell");
 
   const nav = createEl("header", "nav");
+  // Brand
   const brand = createEl("div", "brand");
-  const brandPill = createEl("div", "brand-pill", "</>");
-  const brandText = createEl("span", "", "DEV PORTFOLIO");
+  const brandPill = createEl("div", "brand-pill");
+  const brandLogo = document.createElement("img");
+  brandLogo.src = "resources/Certificates/Logo.png";
+  brandLogo.alt = "Logo";
+  brandLogo.className = "brand-logo";
+  brandPill.appendChild(brandLogo);
+  const brandText = createEl("span", "brand-text-rotator", "");
   brand.appendChild(brandPill);
   brand.appendChild(brandText);
+  initBrandRotator(brandText);
 
+  // Nav links container
   const navLinks = createEl("div", "nav-links");
   const sectionIds = ["home", "about", "skills", "projects", "certificates"];
 
@@ -664,7 +759,18 @@ function render() {
     navLinks.appendChild(btn);
   });
 
+  // Mobile burger toggle
+  const navToggle = document.createElement("button");
+  navToggle.className = "nav-toggle";
+  navToggle.setAttribute("aria-label", "Toggle navigation");
+  navToggle.setAttribute("aria-expanded", "false");
+  for (let i = 0; i < 3; i++) {
+    const line = document.createElement("span");
+    navToggle.appendChild(line);
+  }
+
   nav.appendChild(brand);
+  nav.appendChild(navToggle);
   nav.appendChild(navLinks);
 
   const page = createEl("div", "page");
@@ -675,6 +781,8 @@ function render() {
   sectionIds.forEach((id) => {
     const section = createEl("section", "page-section page-section--" + id);
     section.id = id;
+    // mark for scroll reveal animation
+    section.dataset.reveal = "up";
     const innerMain = createEl("div", "main main--" + id);
     section.appendChild(innerMain);
     page.appendChild(section);
@@ -704,8 +812,28 @@ function render() {
       if (target) {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+      // Close mobile nav after clicking a link
+      if (window.innerWidth <= 880) {
+        nav.classList.remove("nav--open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
     });
   });
+
+  // Toggle burger menu on small screens
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("nav--open");
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  // Ensure nav is reset when resizing back to desktop layout
+  function handleResizeForNav() {
+    if (window.innerWidth > 880 && nav.classList.contains("nav--open")) {
+      nav.classList.remove("nav--open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  }
+  window.addEventListener("resize", handleResizeForNav);
 
   // Update active nav based on scroll position (section closest to viewport center)
   function syncActiveNavWithScroll() {
@@ -736,8 +864,38 @@ function render() {
   app.appendChild(shell);
 }
 
+// Simple scroll-based reveal animations (similar feel to Brix Studio)
+function initScrollAnimations() {
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  if (!revealEls.length) return;
+
+  // Fallback: if IntersectionObserver not supported, just show everything
+  if (!("IntersectionObserver" in window)) {
+    revealEls.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.18,
+    }
+  );
+
+  revealEls.forEach((el) => observer.observe(el));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNetworkBackground();
+  initCursorLight();
   render();
+  initScrollAnimations();
 });
 
