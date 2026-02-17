@@ -38,7 +38,7 @@ window.PORTFOLIO_CONFIG = {
         highlight: "BS COMPUTER SCIENCE",
       },
       {
-        level: "Senior High School",
+        level: "Senior High",
         program: "STEM",
         institution: "University of Cebu Lapu-Lapu and Mandaue",
         location: "Mandaue City, Philippines",

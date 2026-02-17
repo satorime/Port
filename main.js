@@ -880,12 +880,13 @@ function initScrollAnimations() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          obs.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove("is-visible");
         }
       });
     },
     {
-      threshold: 0.18,
+      threshold: 0.25,
     }
   );
 
