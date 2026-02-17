@@ -624,6 +624,8 @@ function renderProjects(main) {
         child.classList.toggle("is-active", child.dataset.filter === activeFilter);
       });
       renderGrid();
+      // Re-initialize scroll animations so newly rendered cards are observed
+      initScrollAnimations();
     });
     filtersRow.appendChild(btn);
   });

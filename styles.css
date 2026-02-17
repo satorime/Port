@@ -1431,6 +1431,29 @@ body {
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* Projects section: separate sticky filter container similar to skills */
+  .projects {
+    position: relative;
+  }
+
+  .projects-filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+    padding: 6px;
+    margin: 14px 0 18px;
+    border-radius: 14px;
+    position: sticky;
+    top: 88px;
+    z-index: 3;
+  }
+
+  .projects-filter {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 640px) {
