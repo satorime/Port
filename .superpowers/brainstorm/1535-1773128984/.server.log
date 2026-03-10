@@ -1,0 +1,21 @@
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EACCES: permission denied 127.0.0.1:52397
+    at Server.setupListenHandle [as _listen2] (node:net:1882:21)
+    at listenInCluster (node:net:1961:12)
+    at doListen (node:net:2135:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+Emitted 'error' event on WebSocketServer instance at:
+    at Server.emit (node:events:519:28)
+    at emitErrorNT (node:net:1940:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EACCES',
+  errno: -4092,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 52397
+}
+
+Node.js v20.18.0
