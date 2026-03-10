@@ -1,17 +1,90 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>BRIX.DEV // Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />    <link rel="stylesheet" href="styles.css?v=hero-anim-2" />
     <link rel="icon" type="image/png" href="resources\Certificates\Logo.png" />
   </head>
   <body>
+    <!-- Full-screen intro overlay -->
+    <div id="intro-overlay" style="position: fixed; inset: 0; background: #0a0a0f; z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <h1 style="font-family: 'Orbitron', monospace; font-size: clamp(40px, 5.5vw, 72px); font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin: 0; text-align: center; line-height: 1.0;">
+        <span id="intro-first" style="display: block; color: #e0e0e0; opacity: 0;">BRIX</span>
+        <span id="intro-last" style="display: block; color: #00ff88; filter: drop-shadow(0 0 20px rgba(0,255,136,0.6)); opacity: 0;">BITAYO</span>
+      </h1>
+    </div>
+    
     <canvas id="network-bg"></canvas>
     <div id="app"></div>
     <script src="config.js"></script>
     <script src="main.js"></script>
+    <script>
+      // Cinematic intro sequence - morphs to hero position
+      window.addEventListener('DOMContentLoaded', () => {
+        const overlay = document.getElementById('intro-overlay');
+        const firstName = document.getElementById('intro-first');
+        const lastName = document.getElementById('intro-last');
+        const introTitle = overlay.querySelector('h1');
+        
+        // Animate first name in
+        setTimeout(() => {
+          firstName.style.opacity = '1';
+          firstName.className = 'animate__animated animate__fadeInUp animate__faster';
+        }, 300);
+        
+        // Animate last name in
+        setTimeout(() => {
+          lastName.style.opacity = '1';
+          lastName.className = 'animate__animated animate__fadeInUp animate__faster';
+        }, 600);
+        
+        // Morph to hero position
+        setTimeout(() => {
+          // Wait for app to render
+          setTimeout(() => {
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+              const rect = heroTitle.getBoundingClientRect();
+              const overlayRect = introTitle.getBoundingClientRect();
+              
+              // Calculate translation needed
+              const translateX = rect.left - overlayRect.left;
+              const translateY = rect.top - overlayRect.top;
+              
+              // Calculate scale
+              const scaleRatio = rect.height / overlayRect.height;
+              
+              // Apply smooth transition - moves left AND scales down
+              introTitle.style.transition = 'all 1s cubic-bezier(0.16, 1, 0.3, 1)';
+              introTitle.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleRatio})`;
+              introTitle.style.transformOrigin = 'top left';
+              introTitle.style.textAlign = 'left';
+              
+              // Fade overlay
+              setTimeout(() => {
+                overlay.style.transition = 'opacity 0.5s ease-out';
+                overlay.style.opacity = '0';
+              }, 800);
+              
+              // Remove overlay and show content
+              setTimeout(() => {
+                overlay.remove();
+                // Fade in other content
+                document.querySelectorAll('.intro-badge, .hero-subtitle-row, .hero-text, .cta-row, .meta-row, .right-col').forEach(el => {
+                  el.style.opacity = '0';
+                  el.classList.add('animate__animated', 'animate__fadeIn');
+                  el.style.opacity = '1';
+                });
+              }, 1300);
+            }
+          }, 100);
+        }, 2000);
+      });
+    </script>
   </body>
 </html>
-
