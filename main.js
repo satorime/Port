@@ -729,6 +729,63 @@ function renderCertificates(main) {
   main.appendChild(wrapper);
 }
 
+function renderPublications(main) {
+  main.className = "main main--publications";
+  main.innerHTML = "";
+
+  const pubCfg = cfg.publications || {};
+  const wrapper = createEl("section", "publications");
+
+  const header = createEl("header", "publications-header");
+  const badge = createEl("div", "publications-badge", "PUBLICATIONS");
+  const title = createEl("h2", "publications-title", pubCfg.title || "Research Publications");
+  const subtitle = createEl(
+    "p",
+    "publications-subtitle",
+    pubCfg.subtitle || "Academic research and conference presentations"
+  );
+  header.appendChild(badge);
+  header.appendChild(title);
+  header.appendChild(subtitle);
+
+  const list = createEl("div", "publications-list");
+
+  (pubCfg.items || []).forEach((item) => {
+    const card = createEl("article", "pub-card");
+    card.dataset.reveal = "service";
+
+    const inner = createEl("div", "pub-inner");
+
+    const mainTitle = createEl("h3", "pub-title", item.title);
+    const conference = createEl("p", "pub-conference", item.conference);
+    const year = createEl("span", "pub-year", item.year);
+    const overview = createEl("p", "pub-overview", item.overview);
+
+    const actions = createEl("div", "pub-actions");
+    if (item.pdfUrl) {
+      const btn = createEl("a", "pub-pdf-btn", "View");
+      btn.href = item.pdfUrl;
+      btn.target = "_blank";
+      btn.rel = "noreferrer";
+      actions.appendChild(btn);
+    }
+
+    inner.appendChild(mainTitle);
+    inner.appendChild(conference);
+    inner.appendChild(year);
+    inner.appendChild(overview);
+    inner.appendChild(actions);
+
+    card.appendChild(inner);
+    list.appendChild(card);
+  });
+
+  wrapper.appendChild(header);
+  wrapper.appendChild(list);
+
+  main.appendChild(wrapper);
+}
+
 function render() {
   const app = document.getElementById("app");
   app.innerHTML = "";
@@ -751,7 +808,7 @@ function render() {
 
   // Nav links container
   const navLinks = createEl("div", "nav-links");
-  const sectionIds = ["home", "about", "skills", "projects", "certificates"];
+  const sectionIds = ["home", "about", "skills", "projects", "publications", "certificates"];
 
   sectionIds.forEach((id, index) => {
     const label = id.charAt(0).toUpperCase() + id.slice(1);
@@ -797,6 +854,7 @@ function render() {
   renderAbout(sectionsMap.about);
   renderSkills(sectionsMap.skills);
   renderProjects(sectionsMap.projects);
+  renderPublications(sectionsMap.publications);
   renderCertificates(sectionsMap.certificates);
 
   // Helper to set active nav item

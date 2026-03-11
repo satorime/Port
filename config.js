@@ -224,6 +224,29 @@ window.PORTFOLIO_CONFIG = {
     ],
   },
 
+  publications: {
+    title: "Research Publications",
+    subtitle: "Academic research and conference presentations",
+    items: [
+      {
+        id: "moodlequest-paper",
+        title: "MoodleQuest: Gamified Engagement for Asynchronous Learning",
+        conference: "12th International Conference on Education and Training Technologies",
+        year: "2026",
+        pdfUrl: "resources/Abstract/MoodleQuest.pdf",
+        overview: "A gamified companion system designed to improve student participation in asynchronous Moodle courses. Combines quests, experience points (XP), badges, leaderboards, and virtual pets with real-time analytics. Built with Next.js and FastAPI, the system integrates securely with Moodle via SSO while maintaining privacy. Student evaluation (32 participants) showed strong learning impact (4.58/5) and engagement (4.38/5), though usability improvements were identified.",
+      },
+      {
+        id: "sepsis-paper",
+        title: "Uncertainty-Aware Temporal Transformer Modeling with Masked Self-Attention and Missingness Encoding for Early Sepsis Risk Stratification from ICU Time-Series Data",
+        conference: "26th Philippine Computing Science Congress and 12th International Conference on Education and Training Technologies",
+        year: "2026",
+        pdfUrl: "resources/Abstract/Early Sepsis Risk Stratification from ICU Time-Series Data.pdf",
+        overview: "An advanced deep learning framework for early sepsis detection in ICU settings using Transformer neural networks. Features masked self-attention and explicit missingness encoding to handle irregular, sparse clinical data. Incorporates uncertainty estimation via Monte Carlo Dropout for reliable clinical decision support. Evaluated on PhysioNet 2019 dataset with focus on clinical utility rather than accuracy alone, emphasizing early intervention and real-world ICU deployment.",
+      },
+    ],
+  },
+
   meta: {
     yearsExperienceLabel: "Years of building for the web",
     yearsNumber: "3+",
