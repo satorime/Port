@@ -144,6 +144,22 @@ window.PORTFOLIO_CONFIG = {
         },
       },
       {
+        id: "discere",
+        title: "Discere Flashcards",
+        kind: "school",
+        featured: false,
+        role: "Full Stack • Study Companion",
+        summary:
+          "A flashcard and quiz platform that helps students study more efficiently with organized decks, interactive quizzes, and progress tracking.",
+        tags: ["HTML", "CSS", "JavaScript", "Django", "SQLite"],
+        badgeLabel: null,
+        statusLabel: "In Progress",
+        imageSrc: "resources/Discere.jpg",
+        links: {
+          repo: "",
+        },
+      },
+      {
         id: "tracker",
         title: "GPTA-Bankal Tracker",
         kind: "side",
