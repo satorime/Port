@@ -13,7 +13,7 @@
   <body>
     <!-- Full-screen intro overlay -->
     <div id="intro-overlay" style="position: fixed; inset: 0; background: #0a0a0f; z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-      <h1 style="font-family: 'Orbitron', monospace; font-size: clamp(40px, 5.5vw, 72px); font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin: 0; text-align: center; line-height: 1.0;">
+      <h1 style="font-family: 'Orbitron', monospace; font-size: clamp(40px, 5.5vw, 72px); font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin: 0; text-align: center; line-height: 1.0; position: relative; z-index: 1;">
         <span id="intro-first" style="display: block; color: #e0e0e0; opacity: 0;">BRIX</span>
         <span id="intro-last" style="display: block; color: #00ff88; filter: drop-shadow(0 0 20px rgba(0,255,136,0.6)); opacity: 0;">BITAYO</span>
       </h1>
@@ -30,6 +30,14 @@
         const firstName = document.getElementById('intro-first');
         const lastName = document.getElementById('intro-last');
         const introTitle = overlay.querySelector('h1');
+        const networkCanvas = document.getElementById('network-bg');
+        if (networkCanvas) {
+          // Move canvas inside overlay so it draws over the dark background
+          networkCanvas.style.position = 'absolute';
+          networkCanvas.style.inset = '0';
+          networkCanvas.style.zIndex = '0';
+          overlay.insertBefore(networkCanvas, overlay.firstChild);
+        }
         
         // Animate first name in
         setTimeout(() => {
@@ -74,6 +82,13 @@
               // Remove overlay and show content
               setTimeout(() => {
                 overlay.remove();
+                if (networkCanvas) {
+                  // Restore canvas to its original place in the document
+                  networkCanvas.style.position = '';
+                  networkCanvas.style.inset = '';
+                  networkCanvas.style.zIndex = '';
+                  document.body.insertBefore(networkCanvas, document.getElementById('app'));
+                }
                 // Fade in other content
                 document.querySelectorAll('.intro-badge, .hero-subtitle-row, .hero-text, .cta-row, .meta-row, .right-col').forEach(el => {
                   el.style.opacity = '0';
