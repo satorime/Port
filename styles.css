@@ -2066,7 +2066,203 @@ body::after {
 }
 
 /* ============================================================
-   27. FOCUS STATES (accessibility)
+   27. SITE FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 48px 40px 0;
+  margin-top: 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 40px;
+}
+
+/* Brand column */
+.footer-col--brand {}
+
+.footer-logo {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.footer-tagline {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted-fg);
+  margin: 0;
+  max-width: 280px;
+}
+
+.footer-tagline strong {
+  color: var(--fg);
+}
+
+/* Column headings */
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin: 0 0 20px;
+  padding: 6px 12px;
+  border: 1px solid var(--accent);
+  clip-path: var(--chamfer-sm);
+  display: inline-block;
+}
+
+/* Quick links */
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-link-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--muted-fg);
+  padding: 4px 0 4px 14px;
+  position: relative;
+  text-align: left;
+  transition: color var(--transition-fast);
+}
+
+.footer-link-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+.footer-link-btn:hover {
+  color: var(--accent);
+}
+
+.footer-link-btn:hover::before {
+  opacity: 1;
+}
+
+/* Social buttons */
+.footer-socials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  clip-path: var(--chamfer-sm);
+  color: var(--muted-fg);
+  text-decoration: none;
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.footer-social-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(0,255,136,0.05);
+}
+
+.footer-social-icon {
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.footer-social-btn:hover .footer-social-icon {
+  opacity: 1;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-copy {
+  font-family: var(--font-label);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--muted-fg);
+  text-transform: uppercase;
+}
+
+.footer-back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: 1px solid var(--border);
+  clip-path: var(--chamfer-sm);
+  color: var(--muted-fg);
+  font-family: var(--font-label);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  padding: 7px 14px;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.footer-back-top:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(0,255,136,0.05);
+}
+
+@media (max-width: 880px) {
+  .site-footer {
+    padding: 36px 16px 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-tagline {
+    max-width: 100%;
+  }
+}
+
+/* ============================================================
+   29. FOCUS STATES (accessibility)
    ============================================================ */
 :focus-visible {
   outline: 2px solid var(--accent);
