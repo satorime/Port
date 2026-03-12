@@ -192,6 +192,40 @@ window.PORTFOLIO_CONFIG = {
           repo: "https://github.com/satorime/discord-bot",
         },
       },
+      {
+        id: "commitsensei",
+        title: "CommitSensei",
+        kind: "side",
+        featured: false,
+        role: "Side Project • Developer Tooling",
+        summary:
+          "Analyze any GitHub profile and get a clear picture of what a developer has built, what languages they use, and how active they are — all in one page.",
+        tags: ["HTML", "CSS", "JavaScript"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/commitsensei.jpg",
+        links: {
+          live: "https://commitsensei.netlify.app/",
+          repo: "https://github.com/satorime/CommitSensei",
+        },
+      },
+      {
+        id: "dataexplorer",
+        title: "DataExplorer",
+        kind: "side",
+        featured: false,
+        role: "Side Project • Data Visualization",
+        summary:
+          "A fully client-side platform for uploading, exploring, and visualizing CSV or JSON datasets directly in the browser. Offers instant column summaries, interactive charts, and one-click data export — no backend, no setup, just drop in your data and go.",
+        tags: ["HTML", "CSS", "JavaScript"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/DataExplorer.jpg",
+        links: {
+          live: "https://dataexplo.netlify.app/",
+          repo: "https://github.com/satorime/DataExplorer",
+        },
+      },
     ],
   },
 
