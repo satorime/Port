@@ -797,7 +797,7 @@ function render() {
   const brand = createEl("div", "brand");
   const brandPill = createEl("div", "brand-pill");
   const brandLogo = document.createElement("img");
-  brandLogo.src = "resources/Certificates/Logo.png";
+  brandLogo.src = "resources/Certificates/Logo.svg";
   brandLogo.alt = "Logo";
   brandLogo.className = "brand-logo";
   brandPill.appendChild(brandLogo);
@@ -936,7 +936,7 @@ function initScrollAnimations() {
   }
 
   const observer = new IntersectionObserver(
-    (entries, obs) => {
+    (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");

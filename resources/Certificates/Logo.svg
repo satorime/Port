@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Dark background with chamfered corners -->
+  <polygon
+    points="10,0 54,0 64,10 64,54 54,64 10,64 0,54 0,10"
+    fill="#0a0a0f"
+    stroke="#00ff88"
+    stroke-width="1.5"
+  />
+
+  <!-- Letter B -->
+  <g fill="#e0e0e0">
+    <!-- Vertical stem -->
+    <rect x="18" y="16" width="5" height="32" rx="1"/>
+    <!-- Top bump -->
+    <path d="M23 16 h8 a7 7 0 0 1 0 14 h-8 z" fill="#e0e0e0"/>
+    <!-- Bottom bump — accent green -->
+    <path d="M23 30 h9 a8 8 0 0 1 0 18 h-9 z" fill="#00ff88"/>
+  </g>
+
+  <!-- Accent dot — bottom right corner mark -->
+  <rect x="44" y="44" width="4" height="4" fill="#00ff88" opacity="0.7"/>
+</svg>
