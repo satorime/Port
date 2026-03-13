@@ -270,7 +270,7 @@ window.PORTFOLIO_CONFIG = {
         tags: ["HTML", "CSS", "JavaScript"],
         badgeLabel: null,
         statusLabel: "Live",
-        imageSrc: "resources/RRLFinder.png",
+        imageSrc: "resources/RRLFinder.PNG",
         links: {
           live: "https://rrl-finder.vercel.app/",
           repo: "https://github.com/satorime/RRLFinder",
