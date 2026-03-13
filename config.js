@@ -156,7 +156,7 @@ window.PORTFOLIO_CONFIG = {
         statusLabel: "In Progress",
         imageSrc: "resources/Discere.jpg",
         links: {
-          repo: "",
+          repo: "https://github.com/y4na/Discere",
         },
       },
       {
@@ -224,6 +224,23 @@ window.PORTFOLIO_CONFIG = {
         links: {
           live: "https://dataexplo.netlify.app/",
           repo: "https://github.com/satorime/DataExplorer",
+        },
+      },
+      {
+        id: "rrlfinder",
+        title: "RRLFinder",
+        kind: "side",
+        featured: false,
+        role: "Side Project • Research Tool",
+        summary:
+          "A research assistant tool that helps students and academics quickly find and organize related review of literature (RRL) sources. Streamlines the research process by surfacing relevant academic references in one place.",
+        tags: ["HTML", "CSS", "JavaScript"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/RRLFinder.png",
+        links: {
+          live: "https://rrl-finder.vercel.app/",
+          repo: "https://github.com/satorime/RRLFinder",
         },
       },
     ],
