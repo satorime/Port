@@ -243,6 +243,23 @@ window.PORTFOLIO_CONFIG = {
         },
       },
       {
+        id: "taskease",
+        title: "TaskEase",
+        kind: "side",
+        featured: false,
+        role: "Full Stack • Productivity App",
+        summary:
+          "A personal task manager built for simplicity and clarity. Create, prioritize, and track tasks with starred importance, a trash-and-restore bin, and at-a-glance reports — so you always know what needs your attention next.",
+        tags: ["HTML", "CSS", "JavaScript"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/TaskEase.jpg",
+        links: {
+          live: "https://taskease-e801.onrender.com/",
+          repo: "https://github.com/satorime/F2_TaskEase",
+        },
+      },
+      {
         id: "rrlfinder",
         title: "RRLFinder",
         kind: "side",
