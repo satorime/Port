@@ -144,6 +144,22 @@ window.PORTFOLIO_CONFIG = {
         },
       },
       {
+        id: "digimage",
+        title: "Digimage",
+        kind: "school",
+        featured: false,
+        role: "School Project • Image Processing",
+        summary:
+          "A digital image processing application that applies various image transformations and filters, built as a practical exploration of core image processing concepts and algorithms.",
+        tags: ["Python"],
+        badgeLabel: null,
+        statusLabel: "Completed",
+        imageSrc: "resources/Digimage.PNG",
+        links: {
+          repo: "https://github.com/satorime/Digital-Image-Processing",
+        },
+      },
+      {
         id: "discere",
         title: "Discere Flashcards",
         kind: "school",
