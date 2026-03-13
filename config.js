@@ -245,7 +245,7 @@ window.PORTFOLIO_CONFIG = {
       {
         id: "taskease",
         title: "TaskEase",
-        kind: "side",
+        kind: "school",
         featured: false,
         role: "Full Stack • Productivity App",
         summary:
