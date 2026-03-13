@@ -188,7 +188,7 @@ window.PORTFOLIO_CONFIG = {
         statusLabel: "Prototype",
         imageSrc: "resources/gpta.jpg",
         links: {
-          live: "https://gpta-bankal.netlify.app/",
+          live: "https://gpta-web.vercel.app/",
           repo: "https://github.com/satorime/GPTA-Bankal/tree/new-feature",
         },
       },
@@ -221,7 +221,7 @@ window.PORTFOLIO_CONFIG = {
         statusLabel: "Live",
         imageSrc: "resources/commitsensei.jpg",
         links: {
-          live: "https://commitsensei.netlify.app/",
+          live: "https://commit-sensei.vercel.app/",
           repo: "https://github.com/satorime/CommitSensei",
         },
       },
@@ -238,7 +238,7 @@ window.PORTFOLIO_CONFIG = {
         statusLabel: "Live",
         imageSrc: "resources/DataExplorer.jpg",
         links: {
-          live: "https://dataexplo.netlify.app/",
+          live: "https://data-explorer-theta.vercel.app/",
           repo: "https://github.com/satorime/DataExplorer",
         },
       },
