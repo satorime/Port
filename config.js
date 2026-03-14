@@ -172,6 +172,7 @@ window.PORTFOLIO_CONFIG = {
         statusLabel: "In Progress",
         imageSrc: "resources/Discere.jpg",
         links: {
+          live: "https://discere-q3o8.onrender.com",
           repo: "https://github.com/y4na/Discere",
         },
       },
