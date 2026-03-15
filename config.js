@@ -261,6 +261,23 @@ window.PORTFOLIO_CONFIG = {
         },
       },
       {
+        id: "ats",
+        title: "ATS Analyzer",
+        kind: "side",
+        featured: false,
+        role: "Side Project • Developer Tooling",
+        summary:
+          "Scores your resume against any job description, surfaces matched and missing keywords, and gives actionable improvement suggestions in real time. Includes hidden text detection — catches white-on-white text, invisible PDF rendering, and keyword stuffing so scores can't be gamed.",
+        tags: ["HTML", "CSS", "JavaScript"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/ATS.jpg",
+        links: {
+          live: "https://ats-analyzer-eight.vercel.app/",
+          repo: "https://github.com/satorime/ATS-Analyzer",
+        },
+      },
+      {
         id: "rrlfinder",
         title: "RRLFinder",
         kind: "side",
