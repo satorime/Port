@@ -278,6 +278,23 @@ window.PORTFOLIO_CONFIG = {
         },
       },
       {
+        id: "datalab",
+        title: "DataLab",
+        kind: "side",
+        featured: false,
+        role: "Side Project • Data Visualization",
+        summary:
+          "Drop your data, see it instantly. Upload a CSV or Excel file and get correlation matrices, distributions, and trend charts in seconds — powered by Flask and Plotly with zero configuration required.",
+        tags: ["Python", "Flask", "Plotly"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/DataLab.jpg",
+        links: {
+          live: "https://data-lab-eoqm.onrender.com/",
+          repo: "https://github.com/satorime/DataLab",
+        },
+      },
+      {
         id: "rrlfinder",
         title: "RRLFinder",
         kind: "side",
