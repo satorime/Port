@@ -156,6 +156,7 @@ window.PORTFOLIO_CONFIG = {
         statusLabel: "Completed",
         imageSrc: "resources/Digimage.PNG",
         links: {
+          live: "https://digimage.onrender.com",
           repo: "https://github.com/satorime/Digital-Image-Processing",
         },
       },
