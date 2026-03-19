@@ -190,8 +190,8 @@ window.PORTFOLIO_CONFIG = {
         statusLabel: "Prototype",
         imageSrc: "resources/gpta.jpg",
         links: {
-          live: "https://gpta-web.vercel.app/",
-          repo: "https://github.com/satorime/GPTA-Bankal/tree/new-feature",
+          live: "https://bankalgpta.vercel.app/",
+          repo: "https://github.com/satorime/GPTA-Bankal",
         },
       },
       {
