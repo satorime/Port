@@ -312,6 +312,23 @@ window.PORTFOLIO_CONFIG = {
           repo: "https://github.com/satorime/RRLFinder",
         },
       },
+      {
+        id: "datapulse",
+        title: "DataPulse",
+        kind: "side",
+        featured: false,
+        role: "Side Project • Health Intelligence",
+        summary:
+          "A personal health dashboard that tracks weight, steps, sleep, and heart rate with progress charts and AI-generated insights. Features user authentication and real-time data visualization.",
+        tags: ["JavaScript", "React", ".NET", "Django", "AI"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/DataPulse.PNG",
+        links: {
+          live: "https://data-pulse-isei.onrender.com/",
+          repo: "https://github.com/satorime/DataPulse",
+        },
+      },
     ],
   },
 
