@@ -296,6 +296,23 @@ window.PORTFOLIO_CONFIG = {
         },
       },
       {
+        id: "remed",
+        title: "ReMed",
+        kind: "side",
+        featured: false,
+        role: "Side Project • Mobile App",
+        summary:
+          "A React Native mobile app that helps patients manage medication schedules, track adherence over 7/14/30-day periods, and detect drug interactions before saving — with push notifications that work even when the app is closed.",
+        tags: ["React Native", "Expo", "TypeScript", "Firebase"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/ReMed.jpg",
+        links: {
+          live: "https://expo.dev/accounts/satorime/projects/remed/builds/f9634f22-673c-4743-8bd4-fc5065919443",
+          repo: "https://github.com/satorime/ReMed",
+        },
+      },
+      {
         id: "rrlfinder",
         title: "RRLFinder",
         kind: "side",
