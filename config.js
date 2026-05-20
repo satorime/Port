@@ -135,7 +135,7 @@ window.PORTFOLIO_CONFIG = {
         role: "Frontend • Head Researcher",
         summary:
           "A gamified companion system designed to improve student participation in asynchronous Moodle courses while preserving transparency and institutional trust. Prior studies indicate that timely engagement cues, visible rewards, and structured incentives can enhance learner motivation and course persistence.",
-        tags: ["React", "Moodle API", "Realtime Data"],
+        tags: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "TailwindCSS", "Moodle OAuth SSO"],
         badgeLabel: "Featured",
         statusLabel: "Live",
         imageSrc: "resources/moodlequest.png",
@@ -344,6 +344,39 @@ window.PORTFOLIO_CONFIG = {
         links: {
           live: "https://data-pulse-isei.onrender.com/",
           repo: "https://github.com/satorime/DataPulse",
+        },
+      },
+      {
+        id: "flowforge",
+        title: "FlowForge",
+        kind: "side",
+        featured: false,
+        role: "Side Project • AI • Developer Tooling",
+        summary:
+          "A visual AI agent workflow builder where users drag and drop nodes onto a React Flow canvas to construct multi-step agentic pipelines. Nodes call Groq's Llama 3.3 70B for LLM inference and Serper.dev for live web search, with all outputs streamed token-by-token via SSE. Completed workflows are persisted to Vercel KV and accessible via shareable URLs.",
+        tags: ["Next.js", "TypeScript", "React Flow", "Groq SDK", "Tailwind CSS", "Vercel KV"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/FlowForge.png",
+        links: {
+          live: "https://flow-forge-tz4f.vercel.app/",
+          repo: "https://github.com/satorime/FlowForge",
+        },
+      },
+      {
+        id: "studysync",
+        title: "StudySync",
+        kind: "side",
+        featured: false,
+        role: "Side Project • SaaS • Study Tool",
+        summary:
+          "A full-stack SaaS platform that eliminates study group fragmentation by unifying scheduling, file sharing, and note management in one place. Features end-to-end type-safe APIs via tRPC, AI-generated study guides from lecture notes using Groq's llama-3.3-70b, and Stripe-enforced freemium limits — all inside the Next.js App Router.",
+        tags: ["TypeScript", "Next.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
+        badgeLabel: null,
+        statusLabel: "In Progress",
+        imageSrc: "resources/StudySync.png",
+        links: {
+          repo: "https://github.com/satorime/StudySync",
         },
       },
     ],
