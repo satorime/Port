@@ -347,6 +347,40 @@ window.PORTFOLIO_CONFIG = {
         },
       },
       {
+        id: "archetiq",
+        title: "Archetiq",
+        kind: "side",
+        featured: false,
+        role: "Side Project • AI • Career Tool",
+        summary:
+          "A cinematic career assessment quiz that reveals your professional archetype through 6 questions. Designed to feel like a private debrief with a sharp strategist — not a generic personality test. The result screen delivers a massive editorial archetype name, personalized roles, skill tags, and a growth edge callout powered by Groq's Llama 3.3 70B.",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Groq API"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/Archetiq.png",
+        links: {
+          live: "https://archetiq.vercel.app/",
+          repo: "https://github.com/satorime/Archetiq",
+        },
+      },
+      {
+        id: "vitaliq",
+        title: "Vitaliq",
+        kind: "side",
+        featured: false,
+        role: "Side Project • AI • Wellness",
+        summary:
+          "A personalized wellness assessment that asks 6 questions about sleep, focus, stress, diet, movement, and mood — then uses Google Gemini 2.5 Flash to generate a custom wellness profile, insight, and action plan in seconds.",
+        tags: ["Next.js", "JavaScript", "Tailwind CSS", "Google Gemini"],
+        badgeLabel: null,
+        statusLabel: "Live",
+        imageSrc: "resources/Vitaliq.png",
+        links: {
+          live: "https://vitaliq-ten.vercel.app/",
+          repo: "https://github.com/satorime/vitaliq",
+        },
+      },
+      {
         id: "flowforge",
         title: "FlowForge",
         kind: "side",
